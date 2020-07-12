@@ -11,16 +11,24 @@
 // Add p in div with id sample-metadata
 
 function init() {
-  Plots(0)
-}
+  Plots(5)
+};
 
 for(var i=0; i<=152; i++){
   d3.selectAll("#selDataset")
   .append("option").text(i)
-}
+};
 
-d3.selectAll("#selDataset")
-  .on("change", (console.log(this)))
+let selection = d3.selectAll("#selDataset");
+
+console.log(selection.node().value);
+
+selection.on("change", function() {
+  let num = selection.node().value
+  Plots(num)
+});
+
+
 
 
 
